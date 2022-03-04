@@ -1,0 +1,445 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html,body{
+    font-family:'Oswald', sans-serif;
+}
+.title{
+    text-align: center;
+    width: 75%;
+    margin: 0 auto;
+}
+.title h2{
+    color: black;
+    font-size: 50px;
+}
+.title p{
+    color: #888888;
+    font-size: 16px;
+    font-weight: 700;
+}
+.title--color h2{
+    color: white;
+}
+.title--color .title__firsh{
+    color: #e62b4a;
+}
+/*Lấy thẻ p, sau đó lấy thẻ đầu tiên trong các thẻ p
+  lấy  loại thẻ trước,xác định thứ tự sau */
+.title p:nth-of-type(1){
+    font-size: 14px;
+    font-weight: 400;
+}
+/*hearder*/
+header{
+    /*Lam mat kich thuoc the */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px;
+    z-index: 10;
+    border-bottom:1px solid white ;
+}
+.header__content{
+   
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    /* justify-content: chia các vung trống trước và sau thẻ con */
+    justify-content: space-between;
+    /*align-items:căn  nội dung của flex theo chiều dọc */
+    align-items: center;
+}
+header li{
+    list-style-type: none;
+    display: inline;
+    padding-left: 20px;
+}
+/*Trạng thái chưa hover */
+header a{
+    text-decoration: none;
+    color: white;
+    transition: all 0.5s;
+}
+header li a{
+    text-transform: uppercase;
+}
+.header__content>a{
+    font-size: 32px;
+}
+/*Trạng  thái  đã hover */
+header li a:hover{
+    color: #e62b4a;
+}
+header li a.active{
+    color: #e62b4a;
+}
+/*PHẦN CAROUSEL*/
+.carousel{
+   background-image: url(../img/home_slider.jpg);
+    height: 700px;
+    background-position: center;
+    background-size: cover;
+    text-align: center;
+    /*CĂN GIỮA THẺ CON BẰNG FLEX CÓ 1 CON */
+    display: flex;
+    /*CĂN THEO CHIỀU NGANG*/
+    justify-content: center;
+    /* CĂN THEO CHIỀU DỌC */
+    align-items: center ;
+}
+.carousel__content i{
+    font-size: 3rem;
+    color: white;
+    animation: updown 1s linear 0s  infinite ;
+   
+}
+/*phan servies*/
+.servies{
+    background-color: black;
+    padding: 100px 0px;
+}
+.servies__content{
+    width: 75%;
+    margin: auto;
+    
+}
+.servies__content .servies_item{
+    color: #848482;
+    height: 230px;
+    width: 214px;
+    margin: 10px;
+    background-color: white;
+    /*Căn giữa flex, có nhiều con flex-direction: column; */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.servies__content .servies_item::before{
+    content: '' ;
+    width: 5px;
+    height: 0;
+    background-color: #e62b4a;
+    position: absolute;
+    right: 0;
+    top: 0;
+    transition: all 0.5s;
+}
+/*đã hover*/
+.servies__content .servies_item:hover::before{
+    height: 100%;
+}
+.servies_item i{
+    font-size: 50px;
+}
+.servies_item p{
+    font-size: 14px;
+}
+
+
+.servies__content .slick-dots li button:before{
+    font-size: 20px;
+    color: white;
+}
+.servies__content .slick-dots li.slick-active button:before{
+    color: #e62b4a;
+}
+
+/*PHẦN SHOWCASE*/
+.showcases{
+    padding: 100px 0px;
+}
+.showcase__content{
+    width: 80%;
+    margin: 0 auto;
+    display: grid;
+    /*grid-template-columns:100px 200px 300px;
+    grid-template-columns:repeat(3,33.33%);*/
+    /*fr:phân số 
+    repeat(3,1fr):mỗi cột 1/3 */
+    grid-template-columns: repeat(3,1fr);
+    /* Gap luôn đi chung với grid tao khoảng trống */
+    gap: 30px;
+}
+
+
+.showcase__item{
+    height: 408px;
+    position: relative;
+    /*CHE ĐI PHẦN THẺ CON NẰM BÊN  NGOÀI BODER CỦA THẺ CHA */
+    overflow: hidden;
+}
+.showcase__overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #e62b4ac5;
+    opacity: 0;
+    transition: all 0.5s;
+}
+.showcase__item:hover .showcase__overlay{
+    opacity: 1;
+}
+.showcase__icon{
+    position: absolute;
+    right: 30px;
+    top: 30px;
+    /*Trạng thái chưa hover */
+    transform: translateY(50px);
+    transition: all 0.5s;
+}
+.showcase__item:hover .showcase__icon{
+    transform: translateY(0);
+}
+.showcase__text{
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    /*Trạng thái chưa hover */
+    transform: translateY(-50px);
+    transition: all 0.5s;
+}
+/*Trạng thái hover */
+.showcase__item:hover .showcase__text{
+    transform: translateY(0);
+}
+.showcase__item img{
+    width: 100%;
+    height: 100%;
+    display: block;
+    /*object-fit: cover; cách chỉnh ảnh ko bị méo ảnh */
+    object-fit: cover;
+    filter: grayscale(100%) contrast(50%);
+}
+
+
+
+
+
+
+
+
+
+/*PHẦN BLOG */
+.blog{
+    padding: 100px 0px;
+}
+.blog__content{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+}
+.item1{
+    /*Cách 1:đường bắt đầu/đường kết thúc
+    grid-column:gôm cột
+    ggrid-column:1 / 3 */
+    /*Cách 2 đường bắt đầu/span số lượng chiếm 
+    grid-column: 1 / span 2;*/
+    
+    grid-column: 1 / span 2;
+    /*Gôm theo hàng */
+    grid-row: 1 / span 2;
+}
+.item10{
+    /*C1:grid-column:3 / 5*/
+    grid-column: 3 / span 2;
+    /*grid-row:3 / 5 */
+    grid-row: 3 / span 2;
+}
+.blog__item img{
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+.blog__item{
+    position: relative;
+}
+.blog__overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(65, 63, 63, 0.5);
+    opacity: 1;
+    transition: all 0.5s;
+}
+.blog__item:hover .blog__overlay{
+    opacity: 0;
+}
+/*PHẦN NUMBER*/
+.number{
+    background-color: black;
+    padding: 100px 0px;
+}
+.number__content{
+    width: 70%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    
+    color: white;
+}
+.number__item{
+    width: 25%;
+}
+.number__item p{
+    font-size: 20px;
+}
+.number__item p:nth-child(1){
+    font-size: 60px;
+    font-weight: 300;
+}
+/*phan epx */
+.epx{
+    padding: 100px 0px;
+    background-image: url(/img/bussiness_img_1.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+}
+.exp_content{
+    width: 75%;
+    margin: auto;
+}
+.exp_content video{
+    width: 100%;
+}
+.exp_content iframe{
+    width: 100%;
+    height: 500px;
+    border: 5px solid red;
+}
+/*Phan contact */
+.contact{
+    padding: 100px 0px;
+}
+.contact_content{
+    width: 75%;
+    margin: auto;
+    display: flex;
+}
+.contact_map{
+    width: 60%;
+   
+}
+.contact_map iframe{
+    width: 100%;
+}
+.contact_form{
+    width: 40%;
+    padding: 20px 10px;
+    
+}
+.contact_form form{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+}
+.contact_form input , .contact_form button{
+    padding: 1em;
+    font-size: 15px;
+}
+.contact_form input :focus{
+    outline: none;
+}
+/*Thêm css cho placeholder*/
+.contact_form textarea::placeholder{
+    color: #e62b4a;
+}
+.contact_form textarea{
+    /*tắt tính năng resize của textarea*/
+    resize: none;
+    /*Do bóng*/
+    box-shadow: 3px 3px 3px 3px black;
+}
+.contact button{
+    /*hướng trải màu từ trai qua phai*/
+    background:linear-gradient(red,yellow);
+}
+/*Phần footer*/
+footer{
+  background: #000;
+}
+.footer__content{
+    width: 80%;
+    margin: auto;
+    padding: 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.footer__content p{
+    color: white;
+    font-size: 14px;
+}
+.footer__content a{
+    width: 54px;
+    height: 54px;
+    display:inline-block;
+    background-color: rgba(255, 255, 255, 0.308);
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    text-decoration: none;
+    line-height: 54px;
+    border-radius: 50%;
+    margin-left: 5px;
+    transition: all .5s;
+
+}
+.footer__content a:hover{
+    color: #e62b4a;
+}
+
+/*Back to top */
+.backtotop{
+    width: 80px;
+    height: 80px;
+    background: rgba(0, 0, 0, 0.295);
+    color: white;
+    font-size: 3rem;
+    text-align: center;
+    line-height: 80px;
+    display: block;
+
+    position: fixed;
+    right: 50px;
+    bottom: 20px;
+    opacity: 0;
+    
+}
+.cd-top--is-visible { 
+    
+    opacity: 1;
+  }
+
+
+/*Keyframes nên để cuối css*/
+/*1 Chu kỳ chuyễn động*/
+/*Hai cách
+C1:from --->to
+C2:0%--->100%*/
+@keyframes updown {
+    /*Khai báo cách di chuyển của thẻ*/
+    /*Vị trí bắt đầu*/
+    from{
+        transform: translateY(0);
+        opacity: 1;
+    }
+    /*Vị trí kích thước */
+    to{
+        transform: translateY(80px);
+        opacity: 0;
+    }
+
+}
+
+
